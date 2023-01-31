@@ -4,9 +4,17 @@ document.querySelector("#btn").addEventListener("click",() => {
     if(input.trim() == ""){
         alert("list elave edin")
     }else{
-        document.querySelector("#list").innerHTML +=`<div class="list" id="list">
+        document.querySelector("#task-list").innerHTML +=`<div class="list" id="list">
         <span>${input}</span>
         <button id="delete">X</button>
-    </div>`
-    } 
+    </div>`;
+    document.querySelector("#input").value=""; 
+
+    const deleteTask = document.querySelectorAll("#delete");
+    for (let i=0; i<deleteTask.length; i++){
+        deleteTask[i].onclick = function(){
+            deleteTask[i].parentNode.remove()
+        }
+    }    
+    }
 });
